@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:proj_long/matchMakingPage.dart';
+import 'package:proj_long/views/authentification/login_screen.dart';
+import 'package:proj_long/views/authentification/signup_screen.dart';
+import 'package:proj_long/views/home_page/home_page.dart';
+import 'package:proj_long/views/tools/colors.dart';
+import 'package:proj_long/views/tools/dimensions.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,14 +14,14 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return GetMaterialApp(
       theme: new ThemeData(
           primaryColor: ThemeColors.mainBlue,
           cursorColor: ThemeColors.mainBlue,
           brightness: Brightness.light,
           splashColor: ThemeColors.backgroundColorBlue,
           highlightColor: ThemeColors.backgroundColorBlue.withOpacity(0.3),
+          backgroundColor: ThemeColors.backgroundColorBlue,
           textTheme: TextTheme(
             headline1: TextStyle(
                 color: ThemeColors.headColor1,
@@ -77,7 +83,8 @@ class MyApp extends StatelessWidget {
           )),
       routes: <String, WidgetBuilder>{},
       debugShowCheckedModeBanner: false,
-      home: MatchMakingPage(),
+      home: Scaffold(
+          backgroundColor: ThemeColors.backgroundColor, body: LoginScreen()),
     );
   }
 }
@@ -99,7 +106,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ThemeColors.mainBlue,
+        backgroundColor: ThemeColors.backgroundColor,
         body: Center(
           child: Hero(
               tag: 'vahkLogo',
@@ -107,28 +114,4 @@ class _SplashScreenState extends State<SplashScreen> {
                   Image(height: 56, image: AssetImage('assets/img/Vahk.png'))),
         ));
   }
-}
-
-// Colors
-class ThemeColors {
-  static const Color mainBlue = Color(0xff4d99fc);
-  static const Color subBlue = Color(0xff3b91f0);
-  static const Color darkBlue = Color(0xff3977d2);
-  static const Color darkerBlue = Color(0xff074f8b);
-  static const Color lightBlue = Color(0xff84a7fd);
-
-  static const Color headColor1 = Color(0xFF152d4a);
-  static const Color headColor2 = Color(0xFF338dfd);
-  static const Color textColor1 = Color(0xFF788694);
-  static const Color textColor2 = Color(0xFF96a2ae);
-  static const Color iconColor = Color(0xFFefeeed);
-
-  static const Color backgroundColorLight = Color(0xFFffffff);
-  static const Color backgroundColorSoftLight = Color(0xFF37393B);
-  static const Color backgroundColor = Color(0xFF1F2022);
-  static const Color backgroundColorAlpha = Color(0xAAededed);
-  static const Color backgroundColorBlue = Color(0xFFcddcef);
-
-  static const Color disabledBackgroundSoft = Color(0xFFf7f7f7);
-  static const Color disabledBackground = Color(0xFFf7f7f7);
 }

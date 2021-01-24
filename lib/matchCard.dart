@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:proj_long/views/tools/colors.dart';
 import 'main.dart';
 
 ///
