@@ -10,12 +10,12 @@ import 'dart:async';
 const LatLng _center = const LatLng(48.8566, 2.3522);
 Set<Marker> markers = {};
 
-class HomePAge extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<HomePAge> {
+class _MyAppState extends State<HomePage> {
   //******** Map variables */
   Completer<GoogleMapController> _controller = Completer();
   GoogleMapController mapController;
@@ -35,9 +35,10 @@ class _MyAppState extends State<HomePAge> {
             Positioned.fill(
                 child: GoogleMap(
                     //markers: markers,
-                    
+
                     myLocationEnabled: true,
                     myLocationButtonEnabled: false,
+                    zoomControlsEnabled: false,
                     onMapCreated: _onMapCreated,
                     initialCameraPosition: CameraPosition(
                       target: _center,
