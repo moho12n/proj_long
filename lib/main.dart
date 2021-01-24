@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: new ThemeData(
-          primaryColor: ThemeColors.mainBlue,
-          cursorColor: ThemeColors.mainBlue,
+          primaryColor: ThemeColors.mainPink,
+          cursorColor: ThemeColors.mainPink,
           brightness: Brightness.light,
           splashColor: ThemeColors.backgroundColorBlue,
           highlightColor: ThemeColors.backgroundColorBlue.withOpacity(0.3),
@@ -84,7 +84,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{},
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: ThemeColors.backgroundColor, body: LoginScreen()),
+          backgroundColor: ThemeColors.backgroundColor, body: HomePAge()),
     );
   }
 }

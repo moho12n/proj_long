@@ -47,7 +47,7 @@ class _MatchMakingPageState extends State<MatchMakingPage> {
                       height: (MediaQuery.of(context).size.width - 64) * 3 / 4,
                       alignment: Alignment.center,
                       child: CircularProgressIndicator(
-                        backgroundColor: ThemeColors.darkBlue,
+                        backgroundColor: ThemeColors.backgroundColor,
                         strokeWidth: 3,
                       ),
                     )

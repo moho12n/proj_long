@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+
 // Colors
 class ThemeColors {
-  static const Color mainBlue = Color(0xff4d99fc);
-  static const Color subBlue = Color(0xff3b91f0);
-  static const Color darkBlue = Color(0xff3977d2);
-  static const Color darkerBlue = Color(0xff074f8b);
-  static const Color lightBlue = Color(0xff84a7fd);
+  static const Color mainPink = Color(0xffFF7675);
+  // static const Color subBlue = Color(0xff3b91f0);
+  // static const Color darkBlue = Color(0xff3977d2);
+  // static const Color darkerBlue = Color(0xff074f8b);
+  // static const Color lightBlue = Color(0xff84a7fd);
+
+  static const Color mainGrey = Color(0xff36383A);
 
   static const Color headColor1 = Color(0xFF152d4a);
   static const Color headColor2 = Color(0xFF338dfd);
