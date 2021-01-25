@@ -247,8 +247,7 @@ class LoginScreen extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  Get.offAll(SignupScreen(),
-                      transition: Transition.rightToLeft);
+                  Get.to(SignupScreen(), transition: Transition.rightToLeft);
                 },
                 child: Text(
                   "S'inscrire",
