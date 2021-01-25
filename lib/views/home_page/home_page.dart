@@ -3,19 +3,26 @@ import 'package:proj_long/views/home_page/widgets/circular_menu.dart';
 import 'package:proj_long/views/home_page/widgets/circular_menu_item.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:proj_long/views/tools/colors.dart';
-
+import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
 
 //Global Variables
 const LatLng _center = const LatLng(48.8566, 2.3522);
 Set<Marker> markers = {};
+String _darkMapStyle;
+String _lightMapStyle;
 
-class HomePAge extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<HomePAge> {
+Future _loadMapStyles() async {
+  _darkMapStyle = await rootBundle.loadString('assets/map_styles/dark.json');
+  _lightMapStyle = await rootBundle.loadString('assets/map_styles/light.json');
+}
+
+class _MyAppState extends State<HomePage> {
   //******** Map variables */
   Completer<GoogleMapController> _controller = Completer();
   GoogleMapController mapController;
@@ -24,6 +31,18 @@ class _MyAppState extends State<HomePAge> {
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
     _controller.complete(controller);
+    _setMapStyle();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadMapStyles();
+  }
+
+  Future _setMapStyle() async {
+    final controller = await _controller.future;
+    controller.setMapStyle(_darkMapStyle);
   }
 
   @override
@@ -35,9 +54,10 @@ class _MyAppState extends State<HomePAge> {
             Positioned.fill(
                 child: GoogleMap(
                     //markers: markers,
-                    
+
                     myLocationEnabled: true,
                     myLocationButtonEnabled: false,
+                    zoomControlsEnabled: false, // not sure if we should keep it
                     onMapCreated: _onMapCreated,
                     initialCameraPosition: CameraPosition(
                       target: _center,

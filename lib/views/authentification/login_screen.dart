@@ -172,7 +172,7 @@ class LoginScreen extends StatelessWidget {
             padding: EdgeInsets.only(
               top: getHeight(54),
             ),
-            child: SvgPicture.asset("assets/back_button.svg"),
+            child: SvgPicture.asset("assets/icons/back_button.svg"),
           ),
           Text(
             "Welcome back!",
