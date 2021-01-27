@@ -31,7 +31,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  circular_menu: ^1.1.2
   get: ^3.12.1
   flutter_svg: ^0.18.0
   google_maps_flutter: ^1.1.1
