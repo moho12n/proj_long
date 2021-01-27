@@ -7,6 +7,7 @@ import 'package:proj_long/views/preferences/preferences_page.dart';
 import 'package:proj_long/views/tools/colors.dart';
 import 'package:proj_long/views/tools/dimensions.dart';
 import 'package:get/get.dart';
+import 'views/create_room/create_room_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -85,7 +86,8 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{},
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: ThemeColors.backgroundColor, body: HomePage()),
+          backgroundColor: ThemeColors.backgroundColor,
+          body: CreateRoomScreen()),
     );
   }
 }
