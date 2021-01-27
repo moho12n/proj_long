@@ -3,6 +3,7 @@ import 'package:proj_long/matchMakingPage.dart';
 import 'package:proj_long/views/authentification/login_screen.dart';
 import 'package:proj_long/views/authentification/signup_screen.dart';
 import 'package:proj_long/views/home_page/home_page.dart';
+import 'package:proj_long/views/preferences/preferences_page.dart';
 import 'package:proj_long/views/tools/colors.dart';
 import 'package:proj_long/views/tools/dimensions.dart';
 import 'package:get/get.dart';
@@ -84,7 +85,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{},
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: ThemeColors.backgroundColor, body: LoginScreen()),
+          backgroundColor: ThemeColors.backgroundColor, body: Preferences()),
     );
   }
 }

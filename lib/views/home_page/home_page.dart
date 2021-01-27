@@ -54,7 +54,6 @@ class _MyAppState extends State<HomePage> {
             Positioned.fill(
                 child: GoogleMap(
                     //markers: markers,
-
                     myLocationEnabled: true,
                     myLocationButtonEnabled: false,
                     zoomControlsEnabled: false, // not sure if we should keep it
