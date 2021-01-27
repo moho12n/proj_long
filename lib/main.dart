@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{},
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: ThemeColors.backgroundColor, body: Preferences()),
+          backgroundColor: ThemeColors.backgroundColor, body: HomePage()),
     );
   }
 }

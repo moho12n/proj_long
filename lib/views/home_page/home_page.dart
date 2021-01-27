@@ -6,6 +6,8 @@ import 'package:proj_long/views/tools/colors.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
 
+import 'package:proj_long/views/tools/dimensions.dart';
+
 //Global Variables
 const LatLng _center = const LatLng(48.8566, 2.3522);
 Set<Marker> markers = {};
@@ -47,6 +49,7 @@ class _MyAppState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return MaterialApp(
       home: Scaffold(
         body: Stack(
@@ -63,6 +66,36 @@ class _MyAppState extends State<HomePage> {
                       zoom: 11.0,
                     ))),
             addCircularMenu,
+            Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                height: getHeight(200),
+                width: SizeConfig.screenWidth,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: <Color>[
+                      Colors.black.withOpacity(0.8),
+                      Colors.black.withOpacity(0.7),
+                      Colors.black.withOpacity(0.5),
+                      Colors.transparent
+                    ],
+                  ),
+                ),
+                child: Padding(
+                    padding: EdgeInsets.only(left: 10, top: 40),
+                    child: new Text(
+                      "Salons",
+                      style: TextStyle(
+                        fontFamily: "Lora",
+                        fontSize: 32,
+                        color: Color(0xffeceded),
+                      ),
+                    )),
+              ),
+            ),
           ],
         ),
       ),
