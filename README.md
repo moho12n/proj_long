@@ -2,15 +2,15 @@
 
 A new Flutter project.
 
-## Getting Started
+prérequis : Flutter (Dart), Firebase
 
-This project is a starting point for a Flutter application.
+Pour tester l'application:
 
-A few resources to get you started if this is your first Flutter project:
+- Installer Flutter
+- Cloner le repo
+- Lancez la commande : Flutter packages get
+- Lancez l'application
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Screens de l'application :
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Alt text](screens/preferences.png?raw=true "preferences")
