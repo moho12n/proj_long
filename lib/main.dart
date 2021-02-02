@@ -9,6 +9,7 @@ import 'package:proj_long/views/tools/dimensions.dart';
 import 'package:proj_long/views/profile_page/edit_profile.dart';
 import 'package:get/get.dart';
 import 'views/create_room/create_room_screen.dart';
+import 'package:proj_long/views/waiting_room/waitingRoom.dart';
 
 void main() {
   runApp(MyApp());
@@ -87,8 +88,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{},
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: ThemeColors.backgroundColor,
-          body: EditProfilePage()),
+          backgroundColor: ThemeColors.backgroundColor, body: WaitingRoom()),
     );
   }
 }
