@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:proj_long/views/preferences/preferences_page.dart';
 
-class WaitingRoom extends StatefulWidget {
+class WaitingRoomBefore extends StatefulWidget {
   @override
   _WaitingRoomState createState() => _WaitingRoomState();
 }
@@ -19,70 +19,8 @@ List list = [
   Person(name: "Mehdi", pseudo: "AAA"),
   Person(name: "Mehdi", pseudo: "AAA")
 ];
-List<Widget> test = [
-  ListTile(
-    title: Text(
-      'Title of messages comes here',
-      style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-    ),
-    subtitle: Text("Text"
-        // pair.asPascalCase,
-        // style: _font,
-        ),
-    leading: ConstrainedBox(
-      constraints: BoxConstraints(
-        minWidth: 44,
-        minHeight: 44,
-        maxWidth: 44,
-        maxHeight: 44,
-      ),
-      child: CircleAvatar(
-          backgroundColor: Colors.brown.shade800, child: Text('AH')),
-    ),
-  ),
-  ListTile(
-    title: Text(
-      'Title of messages comes here',
-      style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-    ),
-    subtitle: Text("Text"
-        // pair.asPascalCase,
-        // style: _font,
-        ),
-    leading: ConstrainedBox(
-      constraints: BoxConstraints(
-        minWidth: 44,
-        minHeight: 44,
-        maxWidth: 44,
-        maxHeight: 44,
-      ),
-      child: CircleAvatar(
-          backgroundColor: Colors.brown.shade800, child: Text('AH')),
-    ),
-  ),
-  ListTile(
-    title: Text(
-      'Title of messages comes here',
-      style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-    ),
-    subtitle: Text("Text"
-        // pair.asPascalCase,
-        // style: _font,
-        ),
-    leading: ConstrainedBox(
-      constraints: BoxConstraints(
-        minWidth: 44,
-        minHeight: 44,
-        maxWidth: 44,
-        maxHeight: 44,
-      ),
-      child: CircleAvatar(
-          backgroundColor: Colors.brown.shade800, child: Text('AH')),
-    ),
-  ),
-];
 
-class _WaitingRoomState extends State<WaitingRoom> {
+class _WaitingRoomState extends State<WaitingRoomBefore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,7 +51,7 @@ class _WaitingRoomState extends State<WaitingRoom> {
         body: Container(
             child: Column(
           children: [
-            if (test.length == 0)
+            if (list.length == 0)
               Center(
                   child: Column(
                 children: [
@@ -176,5 +114,5 @@ class _WaitingRoomState extends State<WaitingRoom> {
 }
 
 void onButtonPressed() {
-  test.length == 0 ? null : print("hello");
+  list.length == 0 ? null : print("hello");
 }
