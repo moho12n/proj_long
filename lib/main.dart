@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
             headline6: TextStyle(
-                color: ThemeColors.backgroundColorAlpha,
+                color: ThemeColors.backgroundColorDark,
                 fontFamily: 'Montserrat',
                 fontSize: 12,
                 fontWeight: FontWeight.w400),

@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -22,15 +23,21 @@ class ResultsScreen extends StatelessWidget {
           SizedBox(
             height: getHeight(32),
           ),
+          Padding(
+            padding: EdgeInsets.only(left: getWidth(22), bottom: 12),
+            child: personResultElement(imageSize: 64, name: "Moi"),
+          ),
           Container(
             height: getHeight(272),
             child: Padding(
                 padding:
-                    EdgeInsets.only(left: getWidth(32), right: getWidth(56)),
+                    EdgeInsets.only(left: getWidth(42), right: getWidth(56)),
                 child: ListView.builder(
                     itemCount: 4,
                     itemBuilder: (context, i) {
-                      return personResultElement();
+                      return Padding(
+                          padding: EdgeInsets.only(bottom: 12),
+                          child: personResultElement(name: "Mehdi Aknoun"));
                     })),
           )
         ],
@@ -94,22 +101,26 @@ Widget restaurentElement() {
   );
 }
 
-Widget personResultElement() {
+Widget personResultElement({double imageSize, String name}) {
   return Row(
     children: [
       Container(
-        height: 62.00,
-        width: 62.00,
+        height: imageSize ?? 40.00,
+        width: imageSize ?? 40.00,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(
-                'https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5f47d4de7637290765bce495%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D1398%26cropX2%3D3908%26cropY1%3D594%26cropY2%3D3102'),
-          ),
+              image: NetworkImage(
+                  'https://cdn.britannica.com/54/188754-050-A3613741/Elon-Musk-2010.jpg'),
+              fit: BoxFit.fitWidth),
           border: Border.all(
             width: 2.00,
             color: Color(0xff2f3032).withOpacity(0),
           ),
-          borderRadius: BorderRadius.circular(32.00),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey.withOpacity(0.3), offset: Offset(-1, 1))
+          ],
+          shape: BoxShape.circle,
         ),
       ),
       SizedBox(
@@ -119,7 +130,7 @@ Widget personResultElement() {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Mehdi Aknoun",
+            name ?? "Unknown",
             style: TextStyle(
               fontFamily: "Raleway",
               fontSize: 10,
@@ -133,8 +144,9 @@ Widget personResultElement() {
             height: 5,
             width: getWidth(180),
             child: FAProgressBar(
-              currentValue: Random().nextInt(100),
-              backgroundColor: Colors.red,
+              currentValue: Random().nextInt(30) + 70,
+              backgroundColor: ThemeColors.backgroundColorDark,
+              progressColor: ThemeColors.mainPink,
             ),
           ),
         ],
