@@ -19,7 +19,7 @@ class ThemeColors {
   static const Color backgroundColorLight = Color(0xFFffffff);
   static const Color backgroundColorSoftLight = Color(0xFF37393B);
   static const Color backgroundColor = Color(0xFF1F2022);
-  static const Color backgroundColorAlpha = Color(0xAAededed);
+  static const Color backgroundColorDark = Color(0xFF121212);
   static const Color backgroundColorBlue = Color(0xFFcddcef);
 
   static const Color disabledBackgroundSoft = Color(0xFFf7f7f7);

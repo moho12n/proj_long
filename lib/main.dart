@@ -4,6 +4,7 @@ import 'package:proj_long/views/authentification/login_screen.dart';
 import 'package:proj_long/views/authentification/signup_screen.dart';
 import 'package:proj_long/views/home_page/home_page.dart';
 import 'package:proj_long/views/preferences/preferences_page.dart';
+import 'package:proj_long/views/results_screen/results_screen.dart';
 import 'package:proj_long/views/tools/colors.dart';
 import 'package:proj_long/views/tools/dimensions.dart';
 import 'package:proj_long/views/profile_page/edit_profile.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: new ThemeData(
+      theme: ThemeData(
           primaryColor: ThemeColors.mainPink,
           cursorColor: ThemeColors.mainPink,
           brightness: Brightness.light,
@@ -74,7 +75,7 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
             headline6: TextStyle(
-                color: ThemeColors.backgroundColorAlpha,
+                color: ThemeColors.backgroundColorDark,
                 fontFamily: 'Montserrat',
                 fontSize: 12,
                 fontWeight: FontWeight.w400),
@@ -87,8 +88,10 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{},
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+ profilePage
           backgroundColor: ThemeColors.backgroundColor,
           body: EditProfilePage()),
+
     );
   }
 }
