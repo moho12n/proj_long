@@ -15,6 +15,9 @@ class MyApp extends StatelessWidget {
           primaryColor: ThemeColors.mainPink,
           cursorColor: ThemeColors.mainPink,
           brightness: Brightness.light,
+          scaffoldBackgroundColor: ThemeColors.backgroundColor,
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              backgroundColor: ThemeColors.backgroundColor),
           splashColor: ThemeColors.backgroundColorBlue,
           highlightColor: ThemeColors.backgroundColorBlue.withOpacity(0.3),
           backgroundColor: ThemeColors.backgroundColorBlue,
