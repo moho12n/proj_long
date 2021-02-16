@@ -1,16 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:proj_long/views/profile_page/settings.dart';
-
-class SettingsUI extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Setting UI",
-      home: EditProfilePage(),
-    );
-  }
-}
+import 'package:proj_long/views/tools/colors.dart';
+import 'package:get/get.dart';
 
 class EditProfilePage extends StatefulWidget {
   @override
@@ -22,29 +13,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 1,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Color(0xff37393B),
-          ),
-          onPressed: () {},
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.settings,
-              color: Color(0xff37393B),
-            ),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => SettingsPage()));
-            },
-          ),
-        ],
-      ),
+      backgroundColor: ThemeColors.backgroundColor,
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: GestureDetector(
@@ -53,13 +22,23 @@ class _EditProfilePageState extends State<EditProfilePage> {
           },
           child: ListView(
             children: [
-              Text(
-                "Edit Profile",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xff37393B),
-                ),
+              Row(
+                children: [
+                  Text(
+                    "Editer Profil",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white70,
+                    ),
+                  ),
+                  Expanded(child: SizedBox()),
+                  InkWell(
+                      onTap: () {
+                        Get.to(SettingsPage());
+                      },
+                      child: Icon(Icons.settings, color: Colors.white)),
+                ],
               ),
               SizedBox(
                 height: 15,
@@ -71,9 +50,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       width: 130,
                       height: 130,
                       decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 4,
-                              color: Theme.of(context).scaffoldBackgroundColor),
+                          border: Border.all(width: 4, color: Colors.black87),
                           boxShadow: [
                             BoxShadow(
                                 spreadRadius: 2,
@@ -98,9 +75,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             shape: BoxShape.circle,
                             border: Border.all(
                               width: 4,
-                              color: Theme.of(context).scaffoldBackgroundColor,
+                              color: Colors.black54,
                             ),
-                            color: Color(0xff37393B),
+                            color: Colors.black,
                           ),
                           child: Icon(
                             Icons.edit,
@@ -123,26 +100,23 @@ class _EditProfilePageState extends State<EditProfilePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  OutlineButton(
+                  Container(
                     padding: EdgeInsets.symmetric(horizontal: 50),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    onPressed: () {},
-                    child: Text("CANCEL",
+                    child: Text("Annuler",
                         style: TextStyle(
                             fontSize: 14,
                             letterSpacing: 2.2,
-                            color: Colors.black)),
+                            color: Colors.white70)),
                   ),
                   RaisedButton(
                     onPressed: () {},
-                    color: Color(0xff37393B),
-                    padding: EdgeInsets.symmetric(horizontal: 50),
+                    color: ThemeColors.mainPink.withOpacity(0.8),
+                    padding: EdgeInsets.symmetric(horizontal: 20),
                     elevation: 2,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     child: Text(
-                      "SAVE",
+                      "Sauvegarder",
                       style: TextStyle(
                           fontSize: 14,
                           letterSpacing: 2.2,
@@ -180,12 +154,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 : null,
             contentPadding: EdgeInsets.only(bottom: 3),
             labelText: labelText,
+            labelStyle: TextStyle(
+              color: Colors.white,
+            ),
             floatingLabelBehavior: FloatingLabelBehavior.always,
             hintText: placeholder,
             hintStyle: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
+              color: Colors.white30,
             )),
       ),
     );

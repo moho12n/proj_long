@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:proj_long/views/tools/colors.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -10,19 +11,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 1,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: Icon(
-            Icons.arrow_back,
-            color: Color(0xff37393B),
-          ),
-        ),
-      ),
+      backgroundColor: ThemeColors.backgroundColor,
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: ListView(
@@ -32,7 +21,7 @@ class _SettingsPageState extends State<SettingsPage> {
               style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w500,
-                  color: Color(0xff37393B)),
+                  color: Colors.white),
             ),
             SizedBox(
               height: 40,
@@ -41,7 +30,7 @@ class _SettingsPageState extends State<SettingsPage> {
               children: [
                 Icon(
                   Icons.person,
-                  color: Color(0xff37393B),
+                  color: Colors.white,
                 ),
                 SizedBox(
                   width: 8,
@@ -51,7 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xff37393B)),
+                      color: Colors.white),
                 ),
               ],
             ),
@@ -74,7 +63,7 @@ class _SettingsPageState extends State<SettingsPage> {
               children: [
                 Icon(
                   Icons.volume_up_outlined,
-                  color: Color(0xff37393B),
+                  color: Colors.white,
                 ),
                 SizedBox(
                   width: 8,
@@ -84,7 +73,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xff37393B)),
+                      color: Colors.white),
                 ),
               ],
             ),
@@ -102,14 +91,11 @@ class _SettingsPageState extends State<SettingsPage> {
               height: 50,
             ),
             Center(
-              child: OutlineButton(
+              child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 40),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                onPressed: () {},
-                child: Text("SIGN OUT",
+                child: Text("Se déconnecter",
                     style: TextStyle(
-                        fontSize: 16, letterSpacing: 2.2, color: Colors.black)),
+                        fontSize: 16, letterSpacing: 2.2, color: Colors.white)),
               ),
             )
           ],
@@ -127,7 +113,7 @@ class _SettingsPageState extends State<SettingsPage> {
           style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w500,
-              color: Colors.grey[600]),
+              color: Colors.grey[400]),
         ),
         Transform.scale(
             scale: 0.7,
@@ -175,7 +161,7 @@ class _SettingsPageState extends State<SettingsPage> {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
-                color: Colors.grey[600],
+                color: Colors.grey[400],
               ),
             ),
             Icon(
