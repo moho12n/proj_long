@@ -114,14 +114,69 @@ class CardContainer extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                  height: 200,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.fitWidth,
-                        image: NetworkImage(
-                            "https://media-exp1.licdn.com/dms/image/C561BAQEOZvU-eFQyKg/company-background_10000/0?e=2159024400&v=beta&t=wQbiXWILniPxWcvD3THV5nWEmuDRGa7npFeGLd3FS2w")),
-                  )),
+              Stack(
+                children: [
+                  Container(
+                    height: 200,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.fitWidth,
+                          image: NetworkImage(
+                              "https://media-exp1.licdn.com/dms/image/C561BAQEOZvU-eFQyKg/company-background_10000/0?e=2159024400&v=beta&t=wQbiXWILniPxWcvD3THV5nWEmuDRGa7npFeGLd3FS2w")),
+                    ),
+                  ),
+                  Container(
+                    height: 60,
+                    width: 60,
+                    child: Image.network(
+                        'https://static.takeaway.com/images/restaurants/fr/R00Q15R1/logo_465x320.png'),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Icon(Icons.location_pin,
+                      size: 16, color: Colors.white.withOpacity(0.8)),
+                  Text(
+                    "à 2.7 kilomètre",
+                    style: TextStyle(
+                      fontFamily: "Raleway",
+                      fontSize: 12,
+                      color: Color(0xffeceded),
+                    ),
+                  ),
+                  Expanded(
+                    child: SizedBox(),
+                  ),
+                  Text(
+                    "5.99",
+                    style: TextStyle(
+                      fontFamily: "Montserrat",
+                      fontWeight: FontWeight.w500,
+                      fontSize: 21,
+                      color: Color(0xffeceded),
+                    ),
+                  ),
+                  Text(
+                    "€",
+                    style: TextStyle(
+                      fontFamily: "Montserrat",
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
+                      color: Color(0xffeceded),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                ],
+              )
             ],
           ),
         ),

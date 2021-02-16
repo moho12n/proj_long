@@ -3,6 +3,7 @@ import 'package:proj_long/views/tools/colors.dart';
 import 'package:proj_long/views/tools/dimensions.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:proj_long/views/waiting_room/waitingRoomBefore.dart';
 
 void showPopUpJoinRoom() {
   Get.dialog(Scaffold(
@@ -121,7 +122,10 @@ void showPopUpJoinRoom() {
                                               SizeConfig.screenHeight * .05),
                                       Center(
                                         child: InkWell(
-                                          onTap: () => Get.back(),
+                                          onTap: () {
+                                            Get.back();
+                                            Get.to(WaitingRoomBefore());
+                                          },
                                           child: Container(
                                               height: SizeConfig.screenHeight *
                                                   0.053,

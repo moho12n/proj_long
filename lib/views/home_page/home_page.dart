@@ -19,8 +19,8 @@ Set<Marker> markers = {};
 class HomePage extends StatelessWidget {
   final HomePageController homePageController = Get.put(HomePageController());
   List<Widget> screensChoice = <Widget>[
-    HomePageScreen(),
     Preferences(),
+    HomePageScreen(),
     EditProfilePage()
   ];
   @override
@@ -92,9 +92,8 @@ class HomePage extends StatelessWidget {
 }
 
 class HomePageScreen extends StatelessWidget {
-  final HomePageController homePageController = Get.put(HomePageController());
-
   //******** Map variables */
+  final HomePageController homePageController = Get.put(HomePageController());
 
   @override
   Widget build(BuildContext context) {

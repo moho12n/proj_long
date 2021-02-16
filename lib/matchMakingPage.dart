@@ -35,7 +35,18 @@ class _MatchMakingPageState extends State<MatchMakingPage> {
         body: SafeArea(
             child: Column(children: <Widget>[
           SizedBox(
-            height: 12,
+            height: 50,
+          ),
+          Text(
+            "Salle 021498",
+            style: TextStyle(
+              fontFamily: "Lora",
+              fontSize: 32,
+              color: Color(0xffeceded),
+            ),
+          ),
+          SizedBox(
+            height: 100,
           ),
           Container(
             child: Column(children: <Widget>[
