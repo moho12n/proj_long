@@ -7,6 +7,7 @@ import 'package:proj_long/views/preferences/preferences_page.dart';
 import 'package:proj_long/views/results_screen/results_screen.dart';
 import 'package:proj_long/views/tools/colors.dart';
 import 'package:proj_long/views/tools/dimensions.dart';
+import 'package:proj_long/views/profile_page/edit_profile.dart';
 import 'package:get/get.dart';
 import 'views/create_room/create_room_screen.dart';
 
