@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'dart:async';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -10,10 +11,24 @@ class HomePageController extends GetxController {
   List<dynamic> queue = [].obs;
   DateTime popTime;
   String darkMapStyle;
-  String lightMapStyle;
   Future loadMapStyles() async {
     darkMapStyle = await rootBundle.loadString('assets/map_styles/dark.json');
-    lightMapStyle = await rootBundle.loadString('assets/map_styles/light.json');
+  }
+
+  Completer<GoogleMapController> _controller = Completer();
+  GoogleMapController mapController;
+
+  //******** OnMapCreated */
+  void onMapCreated(GoogleMapController controller) {
+    loadMapStyles();
+    _setMapStyle();
+    mapController = controller;
+    _controller.complete(controller);
+  }
+
+  Future _setMapStyle() async {
+    final controller = await _controller.future;
+    controller.setMapStyle(darkMapStyle);
   }
 
   @override

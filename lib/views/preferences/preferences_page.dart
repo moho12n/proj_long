@@ -85,7 +85,7 @@ class _PreferenceState extends State<Preferences> {
                         .entries
                         .map((data) => InkWell(
                             onTap: () {
-                              onClick2(data.key);
+                              onClick(data.key);
                             },
                             child: Stack(
                               children: [

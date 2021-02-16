@@ -8,8 +8,6 @@ import 'package:proj_long/views/pop_ups/join_room_popup.dart';
 import 'package:proj_long/views/preferences/preferences_page.dart';
 import 'package:proj_long/views/profile_page/edit_profile.dart';
 import 'package:proj_long/views/tools/colors.dart';
-import 'package:flutter/services.dart' show rootBundle;
-import 'dart:async';
 
 import 'package:proj_long/views/tools/dimensions.dart';
 import 'package:get/get.dart';
@@ -97,20 +95,6 @@ class HomePageScreen extends StatelessWidget {
   final HomePageController homePageController = Get.put(HomePageController());
 
   //******** Map variables */
-  Completer<GoogleMapController> _controller = Completer();
-  GoogleMapController mapController;
-
-  //******** OnMapCreated */
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-    _controller.complete(controller);
-    _setMapStyle();
-  }
-
-  Future _setMapStyle() async {
-    final controller = await _controller.future;
-    controller.setMapStyle(homePageController.darkMapStyle);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -122,7 +106,7 @@ class HomePageScreen extends StatelessWidget {
                 myLocationEnabled: true,
                 myLocationButtonEnabled: false,
                 zoomControlsEnabled: false, // not sure if we should keep it
-                onMapCreated: _onMapCreated,
+                onMapCreated: homePageController.onMapCreated,
                 initialCameraPosition: CameraPosition(
                   target: _center,
                   zoom: 11.0,
