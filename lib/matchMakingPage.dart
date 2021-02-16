@@ -1,9 +1,11 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:proj_long/views/results_screen/results_screen.dart';
 import 'package:proj_long/views/tools/colors.dart';
 import 'main.dart';
 import 'matchCard.dart';
+import 'package:get/get.dart';
 
 class MatchMakingPage extends StatefulWidget {
   @override
@@ -13,7 +15,7 @@ class MatchMakingPage extends StatefulWidget {
 class _MatchMakingPageState extends State<MatchMakingPage> {
   List<Widget> _cardList = [];
   double angle = 0.0;
-  var listElements = ["", "", "", "", "", "", "", "", "", ""];
+  var listElements = ["", "", "", "", "", "", ""];
   // this is just for prototyping
   bool load;
 
@@ -127,6 +129,7 @@ class _MatchMakingPageState extends State<MatchMakingPage> {
                         Future.delayed(Duration(milliseconds: 400), () {
                           setState(() {
                             listElements.remove(listElements[0]);
+                            if (listElements.isEmpty) Get.to(ResultsScreen());
                             angle = 0.0;
                           });
                         });
@@ -167,6 +170,7 @@ class _MatchMakingPageState extends State<MatchMakingPage> {
                         Future.delayed(Duration(milliseconds: 400), () {
                           setState(() {
                             listElements.remove(listElements[0]);
+                            if (listElements.isEmpty) Get.to(ResultsScreen());
                             angle = .0;
                           });
                         });
