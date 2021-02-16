@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../common/check_box.dart';
+import 'package:proj_long/views/tools/colors.dart';
 
 class PreferenceItem {
   int id;
@@ -12,13 +13,6 @@ class PreferenceItem {
   }
 }
 
-List<PreferenceItem> listItems = [
-  PreferenceItem(1, "Oriental", false),
-  PreferenceItem(1, "Japonais", false),
-  PreferenceItem(1, "Japonais", true),
-  PreferenceItem(1, "Japonais", true),
-  PreferenceItem(1, "Japonais", true),
-];
 bool isChecked(PreferenceItem item) {
   // check if the item is in the user's preferences
 }
@@ -29,10 +23,32 @@ class Preferences extends StatefulWidget {
 }
 
 class _PreferenceState extends State<Preferences> {
+  List<PreferenceItem> listItems = [
+    PreferenceItem(1, "Oriental", false),
+    PreferenceItem(1, "Japonais", true),
+    PreferenceItem(1, "Pizza", true),
+    PreferenceItem(1, "Sushi", false),
+    PreferenceItem(1, "Thaï", true),
+  ];
+
+  List<PreferenceItem> userPrefs = [
+    PreferenceItem(1, "Sushi", false),
+    PreferenceItem(1, "Thaï", true),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              save();
+            },
+            child: Text("Save"),
+            backgroundColor: ThemeColors.mainPink,
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
           backgroundColor: Color(0x1F2022),
           body: SingleChildScrollView(
             child: Column(
@@ -53,7 +69,7 @@ class _PreferenceState extends State<Preferences> {
                   Container(
                       margin: const EdgeInsets.only(top: 40.0, left: 10.0),
                       child: CircleAvatar(
-                        backgroundColor: Colors.brown.shade800,
+                        // backgroundColor: Colors.brown.shade800,
                         child: Text('AH'),
                       ))
                 ]),
@@ -65,36 +81,36 @@ class _PreferenceState extends State<Preferences> {
                     crossAxisCount: 2,
                     // This creates two columns with two items in each column
                     children: listItems
-                        .map((data) => GestureDetector(
+                        .asMap()
+                        .entries
+                        .map((data) => InkWell(
                             onTap: () {
-                              print("AHLLAAAAA");
+                              onClick2(data.key);
                             },
                             child: Stack(
                               children: [
                                 Container(
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                    image:
+                                        AssetImage("assets/images/pizza.jpg"),
+                                    fit: BoxFit.fill,
+                                  )),
+                                  margin: EdgeInsets.symmetric(
+                                      vertical: 3, horizontal: 3),
+                                ),
+                                Container(
                                   foregroundDecoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
+                                    // borderRadius: BorderRadius.circular(20),
                                     color: Colors.black.withOpacity(0.4),
-                                    // backgroundBlendMode: BlendMode.saturation,
-                                  ),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                      image:
-                                          AssetImage("assets/images/pizza.jpg"),
-                                      fit: BoxFit.fill,
-                                    )),
-                                    margin: EdgeInsets.symmetric(
-                                        vertical: 5, horizontal: 5),
-                                    // color: Colors.green,
                                   ),
                                 ),
                                 Center(
-                                    child: Text(data.name,
+                                    child: Text(data.value.name,
                                         style: TextStyle(
                                             fontSize: 22, color: Colors.white),
                                         textAlign: TextAlign.center)),
-                                data.checked
+                                isChecked(data.key)
                                     ? Align(
                                         alignment: Alignment.topRight,
                                         child: Container(
@@ -103,7 +119,8 @@ class _PreferenceState extends State<Preferences> {
                                             child: CustomCheckbox(
                                                 color: Colors.white
                                                     .withOpacity(0.2),
-                                                value: data.checked ?? true)
+                                                value:
+                                                    data.value.checked ?? true)
 
                                             // value: isChecked(data),
 
@@ -118,5 +135,35 @@ class _PreferenceState extends State<Preferences> {
             ),
           )),
     );
+  }
+
+  void onClick(int indice) {
+    setState(() {
+      var tmp = listItems;
+      tmp[indice].checked = !listItems[indice].checked;
+      listItems = tmp;
+    });
+  }
+
+  bool isChecked(int indice) {
+    var item = listItems[indice];
+    return userPrefs.contains(item);
+  }
+
+  void onClick2(int indice) {
+    var item = listItems[indice];
+    if (item.checked) {
+      userPrefs.remove(item);
+    } else {
+      userPrefs.add(item);
+    }
+
+    setState(() {
+      userPrefs = userPrefs;
+    });
+  }
+
+  void save() {
+    print(userPrefs.length);
   }
 }

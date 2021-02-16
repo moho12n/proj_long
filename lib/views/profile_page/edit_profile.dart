@@ -55,7 +55,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
             children: [
               Text(
                 "Edit Profile",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xff37393B),
+                ),
               ),
               SizedBox(
                 height: 15,
