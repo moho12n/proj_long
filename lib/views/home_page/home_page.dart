@@ -114,7 +114,6 @@ class HomePageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Stack(
       children: [
         Positioned.fill(
