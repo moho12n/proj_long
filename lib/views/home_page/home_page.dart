@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:proj_long/views/home_page/widgets/circular_menu.dart';
 import 'package:proj_long/views/home_page/widgets/circular_menu_item.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:proj_long/views/pop_ups/create_room_popup.dart';
+import 'package:proj_long/views/pop_ups/join_room_popup.dart';
 import 'package:proj_long/views/tools/colors.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
@@ -52,6 +54,7 @@ class _MyAppState extends State<HomePage> {
     SizeConfig().init(context);
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: ThemeColors.backgroundColor,
         body: Stack(
           children: [
             Positioned.fill(
@@ -86,7 +89,7 @@ class _MyAppState extends State<HomePage> {
                 ),
                 child: Padding(
                     padding: EdgeInsets.only(left: 10, top: 40),
-                    child: new Text(
+                    child: Text(
                       "Salons",
                       style: TextStyle(
                         fontFamily: "Lora",
@@ -111,10 +114,23 @@ Widget addCircularMenu = CircularMenu(
   radius: 80,
   items: [
     CircularMenuItem(
-        icon: Icons.home, color: ThemeColors.mainGrey, onTap: () {}),
+        icon: Icons.exit_to_app,
+        color: ThemeColors.mainGrey,
+        onTap: () {
+          showPopUpJoinRoom();
+          print("1");
+        }),
     CircularMenuItem(
-        icon: Icons.search, color: ThemeColors.mainPink, onTap: () {}),
+        icon: Icons.add,
+        color: ThemeColors.mainGrey,
+        onTap: () {
+          showPopUpCreateRoomConfirmation();
+        }),
     CircularMenuItem(
-        icon: Icons.settings, color: ThemeColors.mainGrey, onTap: () {}),
+        icon: Icons.person_add_alt_1_outlined,
+        color: ThemeColors.mainGrey,
+        onTap: () {
+          print("4");
+        }),
   ],
 );
