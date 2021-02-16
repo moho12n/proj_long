@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:proj_long/views/pop_ups/create_room_popup.dart';
 import 'package:proj_long/views/tools/colors.dart';
 import 'package:proj_long/views/tools/dimensions.dart';
+import 'package:get/get.dart';
 
 class CreateRoomScreen extends StatelessWidget {
   @override
@@ -20,7 +22,11 @@ class CreateRoomScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       SizedBox(width: 20),
-                      Icon(Icons.arrow_back, color: Colors.white),
+                      InkWell(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Icon(Icons.arrow_back, color: Colors.white)),
                       SizedBox(width: 20),
                       Text(
                         "Créer un salon",
@@ -327,7 +333,9 @@ Widget categoryInput() {
 
 Widget button() {
   return InkWell(
-    onTap: () {},
+    onTap: () {
+      showPopUpRoomCreated();
+    },
     borderRadius: BorderRadius.all(Radius.circular(40)),
     highlightColor: Colors.transparent,
     child: Container(

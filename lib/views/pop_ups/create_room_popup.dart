@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:proj_long/views/create_room/create_room_screen.dart';
 import 'package:proj_long/views/tools/colors.dart';
 import 'package:proj_long/views/tools/dimensions.dart';
 import 'package:flutter_svg/svg.dart';
@@ -104,7 +105,8 @@ void showPopUpCreateRoomConfirmation() {
                                           InkWell(
                                             onTap: () {
                                               Get.back();
-                                              showPopUpRoomCreated();
+                                              Get.to(CreateRoomScreen());
+                                              
                                             },
                                             child: Container(
                                                 height:
