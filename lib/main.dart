@@ -80,35 +80,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{},
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: ThemeColors.backgroundColor, body: Preferences()),
+          backgroundColor: ThemeColors.backgroundColor, body: LoginScreen()),
     );
   }
 }
-
-class SplashScreen extends StatefulWidget {
-  SplashScreen({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: ThemeColors.backgroundColor,
-        body: Center(
-          child: Hero(
-              tag: 'vahkLogo',
-              child:
-                  Image(height: 56, image: AssetImage('assets/img/Vahk.png'))),
-        ));
-  }
-}
-
