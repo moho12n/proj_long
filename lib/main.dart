@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proj_long/views/authentification/login_screen.dart';
+import 'package:proj_long/views/home_page/home_page.dart';
 import 'package:proj_long/views/preferences/preferences_page.dart';
 import 'package:proj_long/views/tools/colors.dart';
 import 'package:get/get.dart';
@@ -84,7 +85,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{},
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: ThemeColors.backgroundColor, body: Preferences()),
+          backgroundColor: ThemeColors.backgroundColor, body: LoginScreen()),
     );
   }
 }
