@@ -5,9 +5,11 @@ import 'package:proj_long/views/tools/colors.dart';
 class PreferenceItem {
   int id;
   String name;
+  String imageUrl;
   bool checked;
-  PreferenceItem(int id, String name, bool checked) {
+  PreferenceItem(int id, String name, String imageUrl, bool checked) {
     this.id = id;
+    this.imageUrl = imageUrl;
     this.name = name;
     this.checked = checked;
   }
@@ -24,16 +26,17 @@ class Preferences extends StatefulWidget {
 
 class _PreferenceState extends State<Preferences> {
   List<PreferenceItem> listItems = [
-    PreferenceItem(1, "Oriental", false),
-    PreferenceItem(1, "Japonais", true),
-    PreferenceItem(1, "Pizza", true),
-    PreferenceItem(1, "Sushi", false),
-    PreferenceItem(1, "Thaï", true),
+    PreferenceItem(1, "Burger", "burger.jpg", false),
+    PreferenceItem(1, "Japonais", "japanese.jpg", true),
+    PreferenceItem(1, "Pizza", "pizza.jpg", true),
+    PreferenceItem(1, "Thaï", "thai.jpg", false),
+    PreferenceItem(1, "Oriental", "oriental.jpg", true),
+    PreferenceItem(1, "Burger", "burger.jpg", false),
   ];
 
   List<PreferenceItem> userPrefs = [
-    PreferenceItem(1, "Sushi", false),
-    PreferenceItem(1, "Thaï", true),
+    PreferenceItem(1, "Pizza", "pizza.jpg", true),
+    PreferenceItem(1, "Japonais", "japanese.jpg", true),
   ];
 
   @override
@@ -92,8 +95,8 @@ class _PreferenceState extends State<Preferences> {
                                 Container(
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
-                                    image:
-                                        AssetImage("assets/images/pizza.jpg"),
+                                    image: AssetImage(
+                                        "assets/images/" + data.value.imageUrl),
                                     fit: BoxFit.fill,
                                   )),
                                   margin: EdgeInsets.symmetric(
@@ -110,14 +113,14 @@ class _PreferenceState extends State<Preferences> {
                                         style: TextStyle(
                                             fontSize: 22, color: Colors.white),
                                         textAlign: TextAlign.center)),
-                                isChecked(data.key)
+                                data.value.checked
                                     ? Align(
                                         alignment: Alignment.topRight,
                                         child: Container(
                                             margin: EdgeInsets.symmetric(
                                                 vertical: 5, horizontal: 5),
                                             child: CustomCheckbox(
-                                                color: Colors.white
+                                                color: Colors.grey
                                                     .withOpacity(0.2),
                                                 value:
                                                     data.value.checked ?? true)
