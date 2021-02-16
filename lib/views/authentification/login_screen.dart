@@ -5,6 +5,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:proj_long/controllers/authentification/login_controller.dart';
 import 'package:proj_long/views/authentification/signup_screen.dart';
+import 'package:proj_long/views/home_page/home_page.dart';
 import 'package:proj_long/views/tools/colors.dart';
 import 'package:proj_long/views/tools/dimensions.dart';
 
@@ -170,9 +171,8 @@ class LoginScreen extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.only(
-              top: getHeight(54),
+              top: getHeight(66),
             ),
-            child: SvgPicture.asset("assets/icons/back_button.svg"),
           ),
           Text(
             "Welcome back!",
@@ -208,8 +208,8 @@ class LoginScreen extends StatelessWidget {
           SizedBox(height: getHeight(16)),
           InkWell(
             onTap: () {
-              //         Get.offAll(HomePage());
-              if (_formKey.currentState.validate()) {}
+              Get.offAll(HomePage());
+              //if (_formKey.currentState.validate()) {}
             },
             borderRadius: BorderRadius.all(Radius.circular(40)),
             highlightColor: Colors.transparent,
