@@ -101,9 +101,19 @@ class _MatchCardState extends State<MatchCard> {
 }
 
 class CardContainer extends StatelessWidget {
-  const CardContainer({
-    Key key,
-  }) : super(key: key);
+  final String imageLink;
+  final String logoLink;
+  final String price;
+  final String distance;
+  final String name;
+  const CardContainer(
+      {Key key,
+      this.imageLink,
+      this.logoLink,
+      this.distance,
+      this.price,
+      this.name})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -117,63 +127,86 @@ class CardContainer extends StatelessWidget {
               Stack(
                 children: [
                   Container(
-                    height: 200,
+                    height: 180,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                          fit: BoxFit.fitWidth,
-                          image: NetworkImage(
-                              "https://media-exp1.licdn.com/dms/image/C561BAQEOZvU-eFQyKg/company-background_10000/0?e=2159024400&v=beta&t=wQbiXWILniPxWcvD3THV5nWEmuDRGa7npFeGLd3FS2w")),
+                          fit: BoxFit.fitWidth, image: NetworkImage(imageLink)),
                     ),
                   ),
-                  Container(
-                    height: 60,
-                    width: 60,
-                    child: Image.network(
-                        'https://static.takeaway.com/images/restaurants/fr/R00Q15R1/logo_465x320.png'),
-                  ),
+                  logoLink != null
+                      ? Container(
+                          height: 60,
+                          width: 60,
+                          child: Image.network(
+                              //'https://static.takeaway.com/images/restaurants/fr/R00Q15R1/logo_465x320.png'
+                              logoLink),
+                        )
+                      : Container(),
                 ],
               ),
               SizedBox(
                 height: 8,
               ),
-              Row(
+              Column(
                 children: [
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Icon(Icons.location_pin,
-                      size: 16, color: Colors.white.withOpacity(0.8)),
                   Text(
-                    "à 2.7 kilomètre",
+                    name,
                     style: TextStyle(
                       fontFamily: "Raleway",
-                      fontSize: 12,
-                      color: Color(0xffeceded),
-                    ),
-                  ),
-                  Expanded(
-                    child: SizedBox(),
-                  ),
-                  Text(
-                    "5.99",
-                    style: TextStyle(
-                      fontFamily: "Montserrat",
-                      fontWeight: FontWeight.w500,
                       fontSize: 21,
+                      fontWeight: FontWeight.bold,
                       color: Color(0xffeceded),
                     ),
                   ),
-                  Text(
-                    "€",
-                    style: TextStyle(
-                      fontFamily: "Montserrat",
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14,
-                      color: Color(0xffeceded),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 8,
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Icon(Icons.location_pin,
+                          size: 16, color: Colors.white.withOpacity(0.8)),
+                      Text(
+                        "à " + distance + " kilomètre",
+                        style: TextStyle(
+                          fontFamily: "Raleway",
+                          fontSize: 12,
+                          color: Color(0xffeceded),
+                        ),
+                      ),
+                      Expanded(
+                        child: SizedBox(),
+                      ),
+                      Text(
+                        "à partir de ",
+                        style: TextStyle(
+                          fontFamily: "Montserrat",
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12,
+                          color: Color(0xffeceded),
+                        ),
+                      ),
+                      Text(
+                        price,
+                        style: TextStyle(
+                          fontFamily: "Montserrat",
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                          color: Color(0xffeceded),
+                        ),
+                      ),
+                      Text(
+                        "€",
+                        style: TextStyle(
+                          fontFamily: "Montserrat",
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                          color: Color(0xffeceded),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                    ],
                   ),
                 ],
               )

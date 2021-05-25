@@ -90,11 +90,13 @@ class _PreferenceState extends State<Preferences> {
                                   children: [
                                     Container(
                                       decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
                                           image: DecorationImage(
-                                        image: AssetImage("assets/images/" +
-                                            data.value.imageUrl),
-                                        fit: BoxFit.fill,
-                                      )),
+                                            image: AssetImage("assets/images/" +
+                                                data.value.imageUrl),
+                                            fit: BoxFit.fitHeight,
+                                          )),
                                       margin: EdgeInsets.symmetric(
                                           vertical: 3, horizontal: 3),
                                     ),
@@ -114,17 +116,20 @@ class _PreferenceState extends State<Preferences> {
                                         ? Align(
                                             alignment: Alignment.topRight,
                                             child: Container(
-                                                margin: EdgeInsets.symmetric(
-                                                    vertical: 5, horizontal: 5),
-                                                child: CustomCheckbox(
-                                                    color: Colors.grey
-                                                        .withOpacity(0.2),
-                                                    value: data.value.checked ??
-                                                        true)
+                                              margin: EdgeInsets.symmetric(
+                                                  vertical: 5, horizontal: 5),
+                                              child: Container(
+                                                  decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Colors.white),
+                                                  child: Icon(
+                                                    Icons.check,
+                                                    color:
+                                                        Colors.green.shade300,
+                                                  )),
 
-                                                // value: isChecked(data),
-
-                                                ))
+                                              // value: isChecked(data),
+                                            ))
                                         : Container(),
                                   ],
                                 )))

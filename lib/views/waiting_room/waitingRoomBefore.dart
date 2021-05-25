@@ -1,4 +1,6 @@
 // import 'package:flutter/cupertino.dart';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:proj_long/views/preferences/preferences_page.dart';
 import 'package:proj_long/views/tools/colors.dart';
@@ -20,13 +22,41 @@ class Person {
   Person({this.name, this.pseudo});
 }
 
-List list = [
-  Person(name: "Mehdi", pseudo: "medi_16"),
-  Person(name: "Mohamed", pseudo: "moho12n"),
-  Person(name: "Ryad", pseudo: "Boukersha")
-];
+List list = [];
 
 class _WaitingRoomState extends State<WaitingRoomBefore> {
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    list.clear();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    addingElement();
+    super.initState();
+  }
+
+  addingElement() async {
+    list.add(
+      Person(name: "Mehdi", pseudo: "medi_16"),
+    );
+    await Future.delayed(Duration(seconds: 5), () {
+      setState(() {
+        list.add(
+          Person(name: "Mehdi", pseudo: "medi_16"),
+        );
+      });
+    });
+    await Future.delayed(Duration(seconds: 8), () {
+      setState(() {
+        list.add(Person(name: "Ryad", pseudo: "Boukersha"));
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,12 +154,14 @@ class _WaitingRoomState extends State<WaitingRoomBefore> {
                       height: SizeConfig.screenHeight * 0.053,
                       width: SizeConfig.screenWidth * .355,
                       decoration: BoxDecoration(
-                        color: ThemeColors.mainPink,
+                        color: list.length < 3
+                            ? Colors.grey
+                            : ThemeColors.mainPink,
                         borderRadius: BorderRadius.circular(12.00),
                       ),
                       child: Center(
                         child: Text(
-                          "Commencer",
+                          list.length < 3 ? "En Attente" : "Commencer",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontFamily: "Montserrat",
